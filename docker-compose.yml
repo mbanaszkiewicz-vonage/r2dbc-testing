@@ -1,0 +1,9 @@
+sample-db:
+  image: mysql:5.7
+  command: --max_connections=500 --wait_timeout=90
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+  ports:
+    - "3306:3306"
+  volumes:
+    - ./MysqlSchema:/docker-entrypoint-initdb.d/:ro
